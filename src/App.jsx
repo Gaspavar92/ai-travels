@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
 
+import Form from './components/Form';
+
 import './App.css'
 
 function App() {
 
-  useEffect(() => {
-    const apiKey = import.meta.env.VITE_API_KEY;
-  }, [])
-
   return (
     <>
-
+      <Form />
     </>
   )
 }
