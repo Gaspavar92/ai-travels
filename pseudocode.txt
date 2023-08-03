@@ -1,0 +1,8 @@
+// In the App component I will have a text box to input data; the user will be able to research a specific place or multiple locations at the same time. The information will be passed to state, which will be passed as props to the Place component.
+
+    // The Place component renders the search results by receiving the props, and using them to make the API call to Google Places API. Once the API call is made, the information is returned and rendered on the screen.
+
+// Always in the App component, I will render a sidebar that contains different buttons. The first button will be used to create an itinerary based on the location entered by the user, such as duration, activities, etc. State will be used to save this information, which will be passed as props to the Itinerary component.
+    // In the Itinerary component, the props will be used to make an API call to the OpenAI API, which will allow the user to leverage ChatGPT in order to get a personalized itinerary.
+
+// As a stretch goal, I want to implement Firebase and allow the user to authenticate and save their itineraries in a database, so that they can be viewed at any point.

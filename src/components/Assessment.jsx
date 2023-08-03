@@ -1,7 +1,11 @@
+import "./styles/Assessment.css"
+
 const Assessment = ({response}) => {
 
       return (
-         <div dangerouslySetInnerHTML={{ __html: response }}></div>
+            <div className="assessment-text">
+                  <div dangerouslySetInnerHTML={{ __html: response }}></div>
+            </div>
       );
 
 };

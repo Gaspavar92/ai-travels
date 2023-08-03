@@ -1,0 +1,7 @@
+.sidebar {
+    background-color: purple;
+    width: 400px;
+    height: 100vh;
+    z-index: 0;
+    position: fixed;
+}

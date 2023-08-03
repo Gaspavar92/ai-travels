@@ -1,0 +1,7 @@
+.assessment-text {
+    overflow-y: scroll;
+    border: 1px solid black;
+    height: 100%;
+    padding: 10px;
+    width: 70%;
+}
