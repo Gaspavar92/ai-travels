@@ -7,8 +7,8 @@ const Place = ({user_place, selectFunction}) => {
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const handleClick = (name, address, image, rating, types) => {
-        selectFunction(name, address, image, rating, types);
+    const handleClick = (e, name, address, image, rating, types) => {
+        selectFunction(e, name, address, image, rating, types);
     }
 
     const apiKey = import.meta.env.VITE_MAPS_KEY;
@@ -29,7 +29,6 @@ useEffect(() => {
             const response = await fetch(url);
             const data = await response.json();
             const places = data.results;
-            console.log(places)
     
     
             // START Retrieving all places and pictures
@@ -85,7 +84,7 @@ useEffect(() => {
                                 <h2>{place.name}</h2>
                                 {place.formatted_address && <h3>{place.formatted_address}</h3>}
                                 <img src={place.url} className="location"></img>
-                                <button className="select-button" onClick={() => {handleClick(place.name, place.formatted_address, place.url, place.rating, place.types)}}>Select</button>
+                                <button className="select-button" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types)}}>Select</button>
                             </li>
                     )
                 })}

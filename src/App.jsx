@@ -29,9 +29,17 @@ function App() {
     setSearch('');
   }
 
-  const handleSelect = (name, address, image, rating, types) => {
-    const placeInfo = {name, address, image, rating, types}
-    setSelectedPlace(placeInfo);
+  const handleSelect = (e, name, address, image, rating, types) => {
+    if (e.target.innerText === 'Select') {
+      const placeInfo = {name, address, image, rating, types}
+      setSelectedPlace(placeInfo);
+      e.target.innerText = 'Selected';
+      e.target.classList.add('selected');
+    } else if (e.target.innerText === 'Selected') {
+      e.target.classList.remove('selected');
+      e.target.innerText = 'Select';
+      setSelectedPlace('')
+    }
   }
 
   const handleItinerary = () => {
@@ -40,7 +48,6 @@ function App() {
   }
   const handlePlace = () => {
     setPlace('');
-    setShowPlace(true)
     setShowItinerary(false);
   }
 
@@ -61,7 +68,7 @@ function App() {
 
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>
-          <input type="text" onChange={handleChange} className='text-field' value={search}/>
+          <input type="text" onChange={handleChange} className='text-field' value={search} placeholder='Search for a location...'/>
           <button type='submit' className='submit-button'>Search</button>
         </form>
 
