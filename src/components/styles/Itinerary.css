@@ -1,0 +1,13 @@
+.itinerary {
+    height: 80vh;
+    padding-top: 20px;
+    letter-spacing: 2px;
+    line-height: 30px;
+    width: 90%;
+    overflow-y: scroll;
+}
+
+p {
+    margin: 0;
+}
+
