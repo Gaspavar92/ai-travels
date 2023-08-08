@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import Place from './components/Place';
 import Itinerary from './components/Itinerary'
@@ -9,12 +9,13 @@ function App() {
 
   const [search, setSearch] = useState('');
   const [place, setPlace] = useState('');
+  const [showInstructions, setShowInstructions] = useState(true);
 
 // Conditionally rendering the components
   const [showPlace, setShowPlace] = useState(false);
   const [showItinerary, setShowItinerary] = useState(false);
 
-  const [selectedPlace, setSelectedPlace] = useState([]);
+  const [selectedPlace, setSelectedPlace] = useState({});
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -23,15 +24,18 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowItinerary(false);
-    setShowPlace(true);
-    setPlace(search);
-    setSearch('');
+    if (search) {
+      setShowItinerary(false);
+      setShowPlace(true);
+      setShowInstructions(false)
+      setPlace(search);
+      setSearch('');
+    }
   }
 
-  const handleSelect = (e, name, address, image, rating, types) => {
+  const handleSelect = (e, name, address, image, rating, types, numberOfDays) => {
     if (e.target.innerText === 'Select') {
-      const placeInfo = {name, address, image, rating, types}
+      const placeInfo = {name, address, image, rating, types, numberOfDays}
       setSelectedPlace(placeInfo);
       e.target.innerText = 'Selected';
       e.target.classList.add('selected');
@@ -43,12 +47,18 @@ function App() {
   }
 
   const handleItinerary = () => {
-    setShowPlace(false)
-    setShowItinerary(true);
+    if (selectedPlace.name) {
+      setShowPlace(false)
+      setShowItinerary(true);
+      setShowInstructions(false);
+    } else {
+      console.log('nope')
+    }
   }
   const handlePlace = () => {
     setPlace('');
     setShowItinerary(false);
+    setShowInstructions(true)
   }
 
   return (
@@ -65,10 +75,19 @@ function App() {
       <main>
         {showPlace && <Place user_place={place} selectFunction={handleSelect}/>}
         {showItinerary && <Itinerary place_info={selectedPlace}/>}
+        {showInstructions && 
+        <div className='instructions'>
+          <ol>
+            <li>Search for a specific place or location</li>
+            <li>Select the place you would like to visit</li>
+            <li>Generate an itinerary</li>
+            <li>In order to start again, simply click on Search Place</li>
+          </ol>
+        </div>}
 
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>
-          <input type="text" onChange={handleChange} className='text-field' value={search} placeholder='Search for a location...'/>
+          <input type="text" onChange={handleChange} className='text-field' value={search} placeholder='Search for a location...' required/>
           <button type='submit' className='submit-button'>Search</button>
         </form>
 
