@@ -112,3 +112,18 @@ header {
     padding: 15px;
     border-radius: 50px;
 }
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-size: 25px;
+    line-height: 50px;
+    letter-spacing: 1.5px;
+}
+
+.required {
+    border: 1px solid red;
+}
