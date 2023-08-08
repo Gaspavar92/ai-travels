@@ -28,7 +28,7 @@ ul {
 }
 
 h2 {
-    font-family: 'Sail', cursive;
+    font-family: 'Baloo Bhaina 2', cursive;
     font-size: 35px;
 }
 
@@ -52,3 +52,7 @@ h2, h3 {
     color: black;
     border: 2px solid black;
 }
+
+/* .days, .number-of-days {
+    width: 20%;
+} */
