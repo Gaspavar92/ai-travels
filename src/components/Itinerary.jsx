@@ -4,9 +4,7 @@ import "./styles/Itinerary.css"
 
 import Loading from "./Loading";
 
-const Itinerary = ({place_info}) => {
-
-    console.log(place_info)
+const Itinerary = ({place_info, show}) => {
 
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
@@ -36,9 +34,12 @@ const Itinerary = ({place_info}) => {
     }   
 
     useEffect(() => {
+        if (!show) return;
+        console.log('component mounted - itinerary')
         getResponse();
-    }, [])
+    }, [show])
 
+    if (!show) return null;
 
     return (
         loading ?

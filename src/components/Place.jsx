@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import Loading from './Loading'
 import "./styles/Place.css"
 
-const Place = ({user_place, selectFunction}) => {
-
-    console.log('component mounted')
+const Place = ({user_place, selectFunction, show}) => {
 
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -71,9 +69,17 @@ const Place = ({user_place, selectFunction}) => {
         // END Setting up all places and pics
     }
     
+    // useEffect(() => {
+    //     getPlace()
+    // }, [user_place])
+
     useEffect(() => {
-        getPlace()
-    }, [user_place])
+        if(!show) return;
+        console.log('component mounted - place')
+        getPlace();
+    }, [show])
+
+        if (!show) return null;
 
         return (
             loading ?

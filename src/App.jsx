@@ -73,8 +73,8 @@ function App() {
         </div>
 
       <main>
-        {showPlace && <Place user_place={place} selectFunction={handleSelect}/>}
-        {showItinerary && <Itinerary place_info={selectedPlace}/>}
+        <Place user_place={place} selectFunction={handleSelect} show={showPlace}/>
+        <Itinerary place_info={selectedPlace} show={showItinerary}/>
         {showInstructions && 
         <div className='instructions'>
           <ol>
