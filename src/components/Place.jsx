@@ -7,7 +7,7 @@ const Place = ({user_place, selectFunction}) => {
     console.log('component mounted')
 
     const [places, setPlaces] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const handleClick = (e, name, address, image, rating, types, numberOfDays) => {
         selectFunction(e, name, address, image, rating, types, numberOfDays);
@@ -26,6 +26,7 @@ const Place = ({user_place, selectFunction}) => {
         url.search = params;
         
         try {
+            setLoading(true);
             const response = await fetch(url);
             const data = await response.json();
             const places = data.results;
