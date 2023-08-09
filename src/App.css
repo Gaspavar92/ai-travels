@@ -29,19 +29,26 @@ main {
 }
 
 button {
-    background-color: #daa923;
+    background-color: #2351da;
     font-family: 'Encode Sans Condensed', sans-serif;
     font-size: 20px;
     letter-spacing: 2px;
-    border: 2px solid black;
-    transition: .3s;
+    border: 2px solid white;
+    color: white;
+    transition: .2s;
     cursor: pointer;
+    box-shadow: 0px 6px white;
 }
 
 button:hover {
-    background-color: black;
-    border: 2px solid #daa923;
-    color: #daa923;
+    background-color: rgb(11, 129, 255);
+    box-shadow: 0px 4px white;
+    transform: translateY(2px);
+}
+
+button:active {
+    box-shadow: 0px 0px white;
+    transform: translateY(6px);
 }
 
 .get-place-form {
@@ -108,9 +115,12 @@ header {
 }
 
 .gpt-btn {
-    width: 200px;
+    width: 230px;
     padding: 15px;
     border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .instructions {

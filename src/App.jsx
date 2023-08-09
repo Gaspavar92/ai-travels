@@ -59,6 +59,7 @@ function App() {
     setPlace('');
     setShowItinerary(false);
     setShowInstructions(true)
+    setShowPlace(false)
   }
 
   return (
@@ -66,8 +67,8 @@ function App() {
         <div className="sidebar">
           <h1><span className="ai">AI</span> <span className="letter-t">T</span>ravels</h1>
           <div className="gpt-buttons">
-            <button className='create-itinerary gpt-btn' onClick={handleItinerary}>Create Itinerary</button>
-            <button className='search-place gpt-btn' onClick={handlePlace}>Search Place</button>
+            <button className='create-itinerary gpt-btn' onClick={handleItinerary}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
+            <button className='search-place gpt-btn' onClick={handlePlace}><i className="fa-regular fa-map"></i>Search Place</button>
             <button className='gpt-btn'>Placeholder</button>
           </div>
           <div className="logo">
