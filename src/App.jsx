@@ -71,7 +71,7 @@ function App() {
             <button className='gpt-btn'>Placeholder</button>
           </div>
           <div className="logo">
-            <img className='world' src="./src/assets/gaspavar92_3d_world_map_icon_f72fe4a0-11c3-43fe-9de2-a940fcebd347-removebg-preview.png" alt="3d world map" />
+            <img className='world' src="./public/gaspavar92_3d_world_map_icon_f72fe4a0-11c3-43fe-9de2-a940fcebd347-removebg-preview.png" alt="3d world map" />
           </div>
         </div>
 
