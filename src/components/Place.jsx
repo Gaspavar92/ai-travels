@@ -53,7 +53,7 @@ const Place = ({user_place, selectFunction, show}) => {
                     const picURL = URL.createObjectURL(photoLink);
                     placesWithPics.push({...place, url: picURL})
                 } else {
-                    const picURL = "../src/assets/no-image.png"
+                    const picURL = "/no-image.png"
                     placesWithPics.push({...place, url: picURL})
                 }
             }
