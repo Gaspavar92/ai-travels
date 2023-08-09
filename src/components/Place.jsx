@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Loading from './Loading'
 import "./styles/Place.css"
 
-const Place = ({user_place, selectFunction, show}) => {
+const Place = ({user_place, show, createItinerary}) => {
 
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const handleClick = (e, name, address, image, rating, types, numberOfDays) => {
-        selectFunction(e, name, address, image, rating, types, numberOfDays);
+        createItinerary(e, name, address, image, rating, types, numberOfDays);
     }
 
     const apiKey = import.meta.env.VITE_MAPS_KEY;
@@ -68,16 +68,11 @@ const Place = ({user_place, selectFunction, show}) => {
         
         // END Setting up all places and pics
     }
-    
-    // useEffect(() => {
-    //     getPlace()
-    // }, [user_place])
 
     useEffect(() => {
         if(!show) return;
-        console.log('component mounted - place')
         getPlace();
-    }, [show])
+    }, [user_place, show])
 
         if (!show) return null;
 
@@ -91,11 +86,11 @@ const Place = ({user_place, selectFunction, show}) => {
                                 <h2>{place.name}</h2>
                                 {place.formatted_address && <h3>{place.formatted_address}</h3>}
                                 <img src={place.url} className="location"></img>
-                                <div className="days">
-                                    <p>Number of days:</p>
-                                    <input type="number" className="number-of-days"></input>
-                                </div>
-                                <button className="select-button" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[3].lastChild.value)}}>Select</button>
+                                <form className="days">
+                                    <label htmlFor="number">Number of days:</label>
+                                    <input type="number" className="number-of-days" id="number" min={0} required/>
+                                    <button className="select-button gpt-btn" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[1].value)}}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
+                                </form>
                             </li>
                     )
                 })}

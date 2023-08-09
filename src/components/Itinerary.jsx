@@ -35,7 +35,6 @@ const Itinerary = ({place_info, show}) => {
 
     useEffect(() => {
         if (!show) return;
-        console.log('component mounted - itinerary')
         getResponse();
     }, [show])
 

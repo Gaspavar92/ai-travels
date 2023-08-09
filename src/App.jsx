@@ -33,28 +33,14 @@ function App() {
     }
   }
 
-  const handleSelect = (e, name, address, image, rating, types, numberOfDays) => {
-    if (e.target.innerText === 'Select') {
-      const placeInfo = {name, address, image, rating, types, numberOfDays}
+  const handleItinerary = (e, name, address, image, rating, types, numberOfDays) => {
+      const placeInfo = {e, name, address, image, rating, types, numberOfDays};
       setSelectedPlace(placeInfo);
-      e.target.innerText = 'Selected';
-      e.target.classList.add('selected');
-    } else if (e.target.innerText === 'Selected') {
-      e.target.classList.remove('selected');
-      e.target.innerText = 'Select';
-      setSelectedPlace('')
-    }
-  }
-
-  const handleItinerary = () => {
-    if (selectedPlace.name) {
       setShowPlace(false)
       setShowItinerary(true);
       setShowInstructions(false);
-    } else {
-      console.log('nope')
-    }
   }
+
   const handlePlace = () => {
     setPlace('');
     setShowItinerary(false);
@@ -67,17 +53,16 @@ function App() {
         <div className="sidebar">
           <h1><span className="ai">AI</span> <span className="letter-t">T</span>ravels</h1>
           <div className="gpt-buttons">
-            <button className='create-itinerary gpt-btn' onClick={handleItinerary}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
-            <button className='search-place gpt-btn' onClick={handlePlace}><i className="fa-regular fa-map"></i>Search Place</button>
-            <button className='gpt-btn'>Placeholder</button>
+            <button className='search-place gpt-btn' onClick={handlePlace}><i className="fa-regular fa-map"></i>Instructions</button>
+            <button className='gpt-btn'><i class="fa-solid fa-heart"></i>My Locations</button>
           </div>
           <div className="logo">
-            <img className='world' src="/gaspavar92_3d_world_map_icon_f72fe4a0-11c3-43fe-9de2-a940fcebd347-removebg-preview.png" alt="3d world map" />
+            <img className='world' src="/logo.png" alt="3d world map" />
           </div>
         </div>
 
       <main>
-        <Place user_place={place} selectFunction={handleSelect} show={showPlace}/>
+        <Place user_place={place} show={showPlace} createItinerary={handleItinerary}/>
         <Itinerary place_info={selectedPlace} show={showItinerary}/>
         {showInstructions && 
         <div className='instructions'>
