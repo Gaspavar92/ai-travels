@@ -8,7 +8,9 @@ const Place = ({user_place, show, createItinerary}) => {
     const [loading, setLoading] = useState(false);
 
     const handleClick = (e, name, address, image, rating, types, numberOfDays) => {
-        createItinerary(e, name, address, image, rating, types, numberOfDays);
+        if (numberOfDays) {
+            createItinerary(e, name, address, image, rating, types, numberOfDays);
+        }
     }
 
     const apiKey = import.meta.env.VITE_MAPS_KEY;
