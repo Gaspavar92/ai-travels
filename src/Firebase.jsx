@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push, update, onValue } from "firebase/database";
+import { useEffect } from "react";
 
-const Firebase = () => {
+const Firebase = ({itinerary, saveState}) => {
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,9 +19,16 @@ const Firebase = () => {
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    console.log(app)
+    const database = getDatabase(app);
+    const dbRef = ref(database);
 
-    return (null)
+    useEffect(() => {
+        if (saveState) {
+            push(dbRef, itinerary);
+            console.log("pushed");
+        }
+    }, [saveState])
+
 };
 
 export default Firebase;

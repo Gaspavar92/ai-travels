@@ -3,11 +3,13 @@ import { Configuration, OpenAIApi } from 'openai';
 import "./styles/Itinerary.css"
 
 import Loading from "./Loading";
+import Firebase from "../Firebase";
 
 const Itinerary = ({place_info, show}) => {
 
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
+    const [saveItinerary, setSaveItinerary] = useState(false);
 
     async function getResponse() {
         
@@ -31,7 +33,14 @@ const Itinerary = ({place_info, show}) => {
         } finally {
             setLoading(false)
         }
-    }   
+    }  
+    
+    const saveTrip = () => {
+        setSaveItinerary(prev => !prev);
+        console.log(saveItinerary)
+    };
+
+    // Showing response conditionally if this component is shown to the main page
 
     useEffect(() => {
         if (!show) return;
@@ -45,7 +54,8 @@ const Itinerary = ({place_info, show}) => {
         <Loading /> :
         <div className="itinerary">
         <p dangerouslySetInnerHTML={{ __html: response }}></p>
-            <button className="save-itinerary">Save Itinerary</button>
+            <button className="save-itinerary" onClick={saveTrip}>Save Itinerary</button>
+            <Firebase itinerary={response} saveState={saveItinerary} />
         </div>
     )
 };

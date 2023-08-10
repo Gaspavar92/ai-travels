@@ -79,7 +79,6 @@ function App() {
           <input type="text" onChange={handleChange} className='text-field' value={search} placeholder='Search for a location...' required/>
           <button type='submit' className='submit-button'>Search</button>
         </form>
-
       </main>
 
     </>
