@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Configuration, OpenAIApi } from 'openai';
+import { push, remove, onValue } from "firebase/database";
 import "./styles/Itinerary.css"
 
+import { database, dbRef } from './Firebase';
 import Loading from "./Loading";
-import Firebase from "../Firebase";
 
 const Itinerary = ({place_info, show}) => {
 
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
-    const [saveItinerary, setSaveItinerary] = useState(false);
 
     async function getResponse() {
         
@@ -35,9 +35,16 @@ const Itinerary = ({place_info, show}) => {
         }
     }  
     
-    const saveTrip = () => {
-        setSaveItinerary(prev => !prev);
-        console.log(saveItinerary)
+    const saveTrip = (e) => {
+        if (e.target.textContent == "Save Itinerary") {
+            e.target.textContent = "Saved";
+            e.target.classList.add('saved');
+            push(dbRef, response);
+        } else if (e.target.textContent = "Saved") {
+            e.target.textContent = "Save Itinerary";
+            e.target.classList.remove('saved');
+            // remove(database, response);
+        }
     };
 
     // Showing response conditionally if this component is shown to the main page
@@ -54,8 +61,7 @@ const Itinerary = ({place_info, show}) => {
         <Loading /> :
         <div className="itinerary">
         <p dangerouslySetInnerHTML={{ __html: response }}></p>
-            <button className="save-itinerary" onClick={saveTrip}>Save Itinerary</button>
-            <Firebase itinerary={response} saveState={saveItinerary} />
+            <button className="save-itinerary" onClick={(e) => saveTrip(e)}>Save Itinerary</button>
         </div>
     )
 };
