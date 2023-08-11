@@ -35,6 +35,8 @@ const Itinerary = ({place_info, show}) => {
         }
     }  
 
+    // Function to handle destination's saving and removal
+
     let responseKey;
     
     const saveTrip = (e) => {
