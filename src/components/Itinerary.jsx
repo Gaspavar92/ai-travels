@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Configuration, OpenAIApi } from 'openai';
-import { push, remove, onValue } from "firebase/database";
+import { push, remove, onValue, ref } from "firebase/database";
 import "./styles/Itinerary.css"
 
 import { database, dbRef } from './Firebase';
@@ -34,16 +34,22 @@ const Itinerary = ({place_info, show}) => {
             setLoading(false)
         }
     }  
+
+    let responseKey;
     
     const saveTrip = (e) => {
         if (e.target.textContent == "Save Itinerary") {
             e.target.textContent = "Saved";
             e.target.classList.add('saved');
-            push(dbRef, response);
+            const newResponseRef = push(dbRef, response);
+            responseKey = newResponseRef.key;
         } else if (e.target.textContent = "Saved") {
             e.target.textContent = "Save Itinerary";
             e.target.classList.remove('saved');
-            // remove(database, response);
+            if (responseKey) {
+                const childRef = ref(database, `/${responseKey}`);
+                remove(childRef);
+            }
         }
     };
 
