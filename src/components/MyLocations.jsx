@@ -53,9 +53,10 @@ const MyLocations = ({show}) => {
                     <div className="location-info">
                         <div className="saved-location" id={location.key} key={location.key} onClick={handleClick}>
                             <h2>{location.value.location}</h2>
+                            <h3>Duration: {location.value.days} days</h3>
                             <div dangerouslySetInnerHTML={{__html: location.value.itinerary}} className="description hidden" onClick={handleClick}></div>
                         </div>
-                        <button className="remove-btn" onClick={removeLocation}>Remove</button>
+                        <button className="remove-btn" onClick={removeLocation}><i class="fa-solid fa-trash-can"></i>Remove</button>
 
                     </div>
                 )

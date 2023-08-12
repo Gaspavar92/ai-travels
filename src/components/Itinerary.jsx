@@ -27,7 +27,7 @@ const Itinerary = ({placeInfo, show}) => {
                 messages: [{"role": "system", "content": `You are a virtual travel agent; Provided a place to visit, you provide an itinerary with suggestions about restaurants, activities, places to see and things to do. You will also provide a summary with the place type. ALWAYS use HTML markup and use proper spacing between days. Don't use h1 and DO NOT provide additional styling.`}, {role: "user", content: `Place name: ${placeInfo.name}, place address: ${placeInfo.address}, place ratings: ${placeInfo.ratings}, place types: ${placeInfo.types.map(type => type)}, number of days: ${placeInfo.numberOfDays}`}],
             });
 
-            const response = {location: placeInfo.name, itinerary: completion.data.choices[0].message.content}
+            const response = {location: placeInfo.name, itinerary: completion.data.choices[0].message.content, days: placeInfo.numberOfDays}
             
             setResponse(response);
         } catch {
