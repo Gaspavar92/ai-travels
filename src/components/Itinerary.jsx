@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import { Configuration, OpenAIApi } from 'openai';
-import { push, remove, onValue, ref } from "firebase/database";
+import { push, remove, ref } from "firebase/database";
 import "./styles/Itinerary.css"
 
 import { database, dbRef } from './Firebase';
 import Loading from "./Loading";
 
-const Itinerary = ({place_info, show}) => {
+const Itinerary = ({placeInfo, show}) => {
 
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
@@ -24,10 +24,12 @@ const Itinerary = ({place_info, show}) => {
             const openai = new OpenAIApi(configuration);
             const completion = await openai.createChatCompletion({
                 model: "gpt-3.5-turbo",
-                messages: [{"role": "system", "content": `You are a virtual travel agent; Provided a place to visit, you provide an itinerary with suggestions about restaurants, activities, places to see and things to do. You will also provide a summary with the place type. ALWAYS use HTML markup and use proper spacing between days. Don't use h1 and DO NOT provide additional styling.`}, {role: "user", content: `Place name: ${place_info.name}, place address: ${place_info.address}, place ratings: ${place_info.ratings}, place types: ${place_info.types.map(type => type)}, number of days: ${place_info.numberOfDays}`}],
+                messages: [{"role": "system", "content": `You are a virtual travel agent; Provided a place to visit, you provide an itinerary with suggestions about restaurants, activities, places to see and things to do. You will also provide a summary with the place type. ALWAYS use HTML markup and use proper spacing between days. Don't use h1 and DO NOT provide additional styling.`}, {role: "user", content: `Place name: ${placeInfo.name}, place address: ${placeInfo.address}, place ratings: ${placeInfo.ratings}, place types: ${placeInfo.types.map(type => type)}, number of days: ${placeInfo.numberOfDays}`}],
             });
+
+            const response = {location: placeInfo.name, itinerary: completion.data.choices[0].message.content}
             
-            setResponse(completion.data.choices[0].message.content);
+            setResponse(response);
         } catch {
             console.log('ERROR!')
         } finally {
@@ -68,7 +70,7 @@ const Itinerary = ({place_info, show}) => {
         loading ?
         <Loading /> :
         <div className="itinerary">
-        <p dangerouslySetInnerHTML={{ __html: response }}></p>
+        <p dangerouslySetInnerHTML={{ __html: response.itinerary }}></p>
             <button className="save-itinerary" onClick={(e) => saveTrip(e)}>Save Itinerary</button>
         </div>
     )

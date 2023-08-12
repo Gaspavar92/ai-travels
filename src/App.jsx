@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Place from './components/Place';
 import Itinerary from './components/Itinerary'
+import MyLocations from './components/MyLocations';
 
 import './App.css'
 
@@ -9,11 +10,12 @@ function App() {
 
   const [search, setSearch] = useState('');
   const [place, setPlace] = useState('');
-  const [showInstructions, setShowInstructions] = useState(true);
-
-// Conditionally rendering the components
+  
+  // Conditionally rendering the components
   const [showPlace, setShowPlace] = useState(false);
   const [showItinerary, setShowItinerary] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(true);
+  const [showLocations, setShowLocations] = useState(false);
 
   const [selectedPlace, setSelectedPlace] = useState({});
 
@@ -28,6 +30,7 @@ function App() {
       setShowItinerary(false);
       setShowPlace(true);
       setShowInstructions(false)
+      setShowLocations(false);
       setPlace(search);
       setSearch('');
     }
@@ -39,12 +42,20 @@ function App() {
       setShowPlace(false)
       setShowItinerary(true);
       setShowInstructions(false);
+      setShowLocations(false);
   }
 
   const handlePlace = () => {
-    setPlace('');
     setShowItinerary(false);
-    setShowInstructions(true)
+    setShowInstructions(true);
+    setShowPlace(false);
+    setShowLocations(false);
+  }
+
+  const handleLocations = () => {
+    setShowLocations(true);
+    setShowItinerary(false);
+    setShowInstructions(false)
     setShowPlace(false)
   }
 
@@ -54,7 +65,7 @@ function App() {
           <h1><span className="ai">AI</span> <span className="letter-t">T</span>ravels</h1>
           <div className="gpt-buttons">
             <button className='search-place gpt-btn' onClick={handlePlace}><i className="fa-regular fa-map"></i>Instructions</button>
-            <button className='gpt-btn'><i className="fa-solid fa-heart"></i>My Locations</button>
+            <button className='gpt-btn' onClick={handleLocations}><i className="fa-solid fa-heart"></i>My Locations</button>
           </div>
           <div className="logo">
             <img className='world' src="/logo.png" alt="3d world map" />
@@ -62,8 +73,8 @@ function App() {
         </div>
 
       <main>
-        <Place user_place={place} show={showPlace} createItinerary={handleItinerary}/>
-        <Itinerary place_info={selectedPlace} show={showItinerary}/>
+        <Place userPlace={place} show={showPlace} createItinerary={handleItinerary}/>
+        <Itinerary placeInfo={selectedPlace} show={showItinerary}/>
         {showInstructions && 
         <div className='instructions'>
           <ol>
@@ -73,6 +84,7 @@ function App() {
             <li>In order to start again, simply click on Search Place</li>
           </ol>
         </div>}
+        <MyLocations show={showLocations} />
 
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>

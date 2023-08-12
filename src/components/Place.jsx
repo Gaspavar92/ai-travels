@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Loading from './Loading'
 import "./styles/Place.css"
 
-const Place = ({user_place, show, createItinerary}) => {
+const Place = ({userPlace, show, createItinerary}) => {
 
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ const Place = ({user_place, show, createItinerary}) => {
     async function getPlace() {
         const url = new URL("https://proxy.junocollege.com/https://maps.googleapis.com/maps/api/place/textsearch/json")
         const params = new URLSearchParams({
-            query: user_place,
+            query: userPlace,
             key: apiKey
         })
         
@@ -74,7 +74,7 @@ const Place = ({user_place, show, createItinerary}) => {
     useEffect(() => {
         if(!show) return;
         getPlace();
-    }, [user_place, show])
+    }, [userPlace, show])
 
         if (!show) return null;
 
