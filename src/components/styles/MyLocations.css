@@ -1,6 +1,7 @@
 .saved-locations {
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    width: 800px;
     padding-top: 60px;
     flex-wrap: wrap;
 }
@@ -10,7 +11,6 @@
     height: 200px;
     width: 200px;
     border-radius: 20px;
-    width: calc(100% / 4);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,11 +30,13 @@
 
 .open {
     position: fixed;
-    height: 600px;
-    width: 800px;
+    height: 700px;
+    width: 900px;
     overflow-y: scroll;
     padding: 20px;
     z-index: 1;
+    top: calc(50% - 350px);
+    left: calc(50% - 350px);
     display: block;
 }
 
@@ -49,4 +51,28 @@
 
 .description {
     height: fit-content;
+}
+
+.remove-btn {
+    width: fit-content;
+    align-self: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.remove-btn:hover {
+    background-color: rgb(199, 68, 42);
+}
+
+.location-info {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.no-itinerary {
+    font-size: 20px;
+    text-align: center;
+    padding-top: calc(50% - 150px);
 }
