@@ -42,8 +42,6 @@ const MyLocations = ({show}) => {
         setLocations(places)
     }, [show]);
 
-    console.log(locations.length)
-
     if (!show) return null;
 
     return (

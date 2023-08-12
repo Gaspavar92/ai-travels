@@ -72,7 +72,12 @@
 }
 
 .no-itinerary {
-    font-size: 20px;
     text-align: center;
-    padding-top: calc(50% - 150px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-size: 25px;
+    line-height: 50px;
+    letter-spacing: 1.5px;
 }
