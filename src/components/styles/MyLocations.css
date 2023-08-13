@@ -18,6 +18,7 @@
     align-items: center;
     cursor: pointer;
     transition: .3s;
+    position: relative;
 }
 
 .saved-location:hover {
@@ -63,7 +64,7 @@
     gap: 10px;
 }
 
-.remove-btn:hover {
+.remove-btn:hover, .close-btn:hover {
     background-color: rgb(199, 68, 42);
 }
 
@@ -83,4 +84,14 @@
     font-size: 25px;
     line-height: 50px;
     letter-spacing: 1.5px;
+}
+
+.close-btn {
+    padding: 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
