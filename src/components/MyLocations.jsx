@@ -12,13 +12,17 @@ const MyLocations = ({show}) => {
     const handleClick = (e) => {
         e.stopPropagation();
         const locationDiv = e.currentTarget;
+        const parentDiv = e.currentTarget.parentElement;
         locationDiv.classList.add('open');
+        parentDiv.classList.add('open-overflow');
     };
 
     const closeLocation = (e) => {
         e.stopPropagation();
+        const grandParentDiv = e.currentTarget.parentElement.parentElement;
         const parentDiv = e.currentTarget.parentElement;
         parentDiv.classList.remove('open');
+        grandParentDiv.classList.remove('open-overflow');
     }
 
     const removeLocation = (e) => {
@@ -64,6 +68,7 @@ const MyLocations = ({show}) => {
                             <div dangerouslySetInnerHTML={{__html: location.value.itinerary}} className="description hidden"></div>
                         </div>
                         <button className="remove-btn" onClick={removeLocation}><i className="fa-solid fa-trash-can"></i>Remove</button>
+                        <div className="overflow"></div>
                     </div>
                 )
             })}
