@@ -18,10 +18,3 @@ import { getDatabase, ref } from "firebase/database";
     const app = initializeApp(firebaseConfig);
     export const database = getDatabase(app);
     export const dbRef = ref(database);
-
-
-    // useEffect(() => {
-    //     if (saveState) {
-    //         push(dbRef, itinerary);
-    //     }
-    // }, [saveState])
