@@ -1,9 +1,10 @@
 .saved-locations {
     display: flex;
-    gap: 30px;
-    width: 800px;
-    padding-top: 60px;
+    gap: 60px;
+    padding: 60px 40px;
     flex-wrap: wrap;
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .saved-location {

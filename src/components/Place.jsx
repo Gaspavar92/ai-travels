@@ -91,7 +91,7 @@ const Place = ({userPlace, show, createItinerary}) => {
                                 <form className="days">
                                     <label htmlFor="number">Number of days:</label>
                                     <input type="number" className="number-of-days" id="number" min={0} required/>
-                                    <button className="select-button gpt-btn" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[1].value)}}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
+                                    <button className="select-button" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[1].value)}}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
                                 </form>
                             </li>
                     )
