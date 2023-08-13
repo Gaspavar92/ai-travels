@@ -6,11 +6,6 @@ html { box-sizing: border-box;}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
-.wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
 h1 {
     margin: 0;
     font-family: 'Moirai One', cursive;
@@ -60,6 +55,16 @@ button:active {
     height: 60px;
 }
 
+.get-place-form::after {
+    content: '';
+    height: 100px;
+    width: 100%;
+    background-image: linear-gradient(to bottom, transparent, #384160 50%);
+    display: block;
+    bottom: 80px;
+    position: absolute;
+}
+
 .text-field {
     width: 70%;
     border-radius: 50px;
@@ -83,10 +88,9 @@ button:active {
     height: 100vh;
     z-index: 0;
     position: fixed;
-}
-
-.sidebar, header {
     background-color: #1e2e4e;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -134,10 +138,10 @@ header {
     letter-spacing: 1.5px;
 }
 
-.required {
-    border: 1px solid red;
+.world {
+    width: 350px;
 }
 
-.world {
-    width: 400px;
+.logo {
+    align-self: center;
 }
