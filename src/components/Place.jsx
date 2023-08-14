@@ -81,22 +81,25 @@ const Place = ({userPlace, show, createItinerary}) => {
         return (
             loading ?
             <Loading /> :
-            <ul className="all-places">
-                {places.map((place) => {
-                    return (
-                            <li key={place.place_id} className="list-place">
-                                <h2>{place.name}</h2>
-                                {place.formatted_address && <h3>{place.formatted_address}</h3>}
-                                <img src={place.url} className="location"></img>
-                                <form className="days">
-                                    <label htmlFor="number">Number of days:</label>
-                                    <input type="number" className="number-of-days" id="number" min={0} required/>
-                                    <button className="select-button" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[1].value)}}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
-                                </form>
-                            </li>
-                    )
-                })}
-            </ul>
+            <>
+                <h1>Search Results</h1>
+                <ul className="all-places">
+                    {places.map((place) => {
+                        return (
+                                <li key={place.place_id} className="list-place">
+                                    <h2>{place.name}</h2>
+                                    {place.formatted_address && <h3>{place.formatted_address}</h3>}
+                                    <img src={place.url} className="location"></img>
+                                    <form className="days">
+                                        <label htmlFor="number">Number of days:</label>
+                                        <input type="number" className="number-of-days" id="number" min={0} required/>
+                                        <button className="select-button" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[1].value)}}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
+                                    </form>
+                                </li>
+                        )
+                    })}
+                </ul>
+            </>
         )
 
     }

@@ -57,22 +57,25 @@ const MyLocations = ({show}) => {
     return (
         locations.length === 0 ?
         <p className="no-itinerary">You didn't save an itinerary yet.</p> :
-        <div className="saved-locations">
-            {locations.map(location => {
-                return (
-                    <div className="location-info" key={location.key}>
-                        <div className="saved-location" id={location.key} onClick={handleClick}>
-                            <h2>{location.value.location}</h2>
-                            <h3>Duration: {location.value.days} days</h3>
-                            <button className="hidden close-btn" onClick={closeLocation}><i className="fa-solid fa-xmark"></i></button>
-                            <div dangerouslySetInnerHTML={{__html: location.value.itinerary}} className="description hidden"></div>
+        <>
+            <h1>My Locations</h1>
+            <div className="saved-locations">
+                {locations.map(location => {
+                    return (
+                        <div className="location-info" key={location.key}>
+                            <div className="saved-location" id={location.key} onClick={handleClick}>
+                                <h2>{location.value.location}</h2>
+                                <h3>Duration: {location.value.days} {location.value.days == 1 ? "day" : "days"}</h3>
+                                <button className="hidden close-btn" onClick={closeLocation}><i className="fa-solid fa-xmark"></i></button>
+                                <div dangerouslySetInnerHTML={{__html: location.value.itinerary}} className="description hidden"></div>
+                            </div>
+                            <button className="remove-btn" onClick={removeLocation}><i className="fa-solid fa-trash-can"></i>Remove</button>
+                            <div className="overflow"></div>
                         </div>
-                        <button className="remove-btn" onClick={removeLocation}><i className="fa-solid fa-trash-can"></i>Remove</button>
-                        <div className="overflow"></div>
-                    </div>
-                )
-            })}
-        </div>
+                    )
+                })}
+            </div>
+        </>
     )
 };
 
