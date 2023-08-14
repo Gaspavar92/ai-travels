@@ -1,7 +1,7 @@
 .all-places {
     display: flex;
     flex-wrap: wrap;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 80vh;
     gap: 80px;
     padding-top: 40px;
