@@ -79,10 +79,11 @@ function App() {
         <div className='instructions'>
           <h1>Instructions</h1>
           <ol>
-            <li>Search for a specific place or location</li>
-            <li>Select the place you would like to visit</li>
-            <li>Generate an itinerary</li>
-            <li>In order to start again, simply click on Search Place</li>
+            <li>Use the Search Bar to look for a location you would like to visit</li>
+            <li>Choose the number of days for your trip and create an itinerary</li>
+            <li>You can save your itinerary and access it from the My Locations tab</li>
+            <li>In order to start again, simply look for another place</li>
+            <li>Enjoy your trip!</li>
           </ol>
         </div>}
         <MyLocations show={showLocations} />
