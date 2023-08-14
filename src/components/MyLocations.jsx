@@ -58,7 +58,7 @@ const MyLocations = ({show}) => {
         locations.length === 0 ?
         <p className="no-itinerary">You didn't save an itinerary yet.</p> :
         <>
-            <h1>My Locations</h1>
+            <h2 className="section-title">My Locations</h2>
             <div className="saved-locations">
                 {locations.map(location => {
                     return (

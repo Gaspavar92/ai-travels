@@ -82,7 +82,7 @@ const Place = ({userPlace, show, createItinerary}) => {
             loading ?
             <Loading /> :
             <>
-                <h1>Search Results</h1>
+                <h2 className="section-title">Search Results</h2>
                 <ul className="all-places">
                     {places.map((place) => {
                         return (

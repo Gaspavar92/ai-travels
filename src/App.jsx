@@ -77,7 +77,7 @@ function App() {
         <Itinerary placeInfo={selectedPlace} show={showItinerary}/>
         {showInstructions && 
         <div className='instructions'>
-          <h1>Instructions</h1>
+          <h2 className="section-title">Instructions</h2>
           <ol>
             <li>Use the Search Bar to look for a location you would like to visit</li>
             <li>Choose the number of days for your trip and create an itinerary</li>

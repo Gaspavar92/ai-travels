@@ -70,7 +70,7 @@ const Itinerary = ({placeInfo, show}) => {
         loading ?
         <Loading /> :
         <div className="itinerary">
-        <h1>Itinerary</h1>
+        <h2 className="section-title">Itinerary</h2>
         <p dangerouslySetInnerHTML={{ __html: response.itinerary }}></p>
             <button className="save-itinerary" onClick={(e) => saveTrip(e)}>Save Itinerary</button>
         </div>
