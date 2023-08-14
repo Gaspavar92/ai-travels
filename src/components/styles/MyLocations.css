@@ -66,11 +66,21 @@
     transform: translateY(-80px);
     opacity: 0;
     transition: .3s;
+    z-index: -1;
 }
 
 .location-info:not(.open-overflow):hover > .remove-btn {
     transform: translateY(0);
     opacity: 1;
+    z-index: 1;
+}
+
+.remove-btn:hover {
+    margin-top: 2px;
+}
+
+.remove-btn:active {
+    margin-top: 6px;
 }
 
 .remove-btn:hover, .close-btn:hover {
