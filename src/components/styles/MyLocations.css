@@ -63,6 +63,14 @@
     border-radius: 10px;
     display: flex;
     gap: 10px;
+    transform: translateY(-80px);
+    opacity: 0;
+    transition: .3s;
+}
+
+.location-info:not(.open-overflow):hover > .remove-btn {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .remove-btn:hover, .close-btn:hover {
@@ -71,6 +79,7 @@
 
 .location-info {
     width: fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 20px;
