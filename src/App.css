@@ -56,7 +56,8 @@ button:active {
     height: 60px;
 }
 
-.get-place-form::after {
+/* Needs to be optimized, current visual issue*/
+/* .get-place-form::after {
     content: '';
     height: 100px;
     width: 100%;
@@ -64,7 +65,7 @@ button:active {
     display: block;
     bottom: 80px;
     position: absolute;
-}
+} */
 
 .text-field {
     width: 70%;
