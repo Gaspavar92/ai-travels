@@ -1,0 +1,40 @@
+.sidebar {
+    width: 400px;
+    height: 100vh;
+    z-index: 0;
+    position: fixed;
+    background-color: #1e2e4e;
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-t {
+    font-family: 'Yuji Hentaigana Akebono', cursive;
+    font-size: 80px;
+    letter-spacing: -15px;
+}
+
+.gpt-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 500px;
+}
+
+.gpt-btn {
+    width: 230px;
+    padding: 15px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.world {
+    width: 350px;
+}
+
+.logo {
+    align-self: center;
+}

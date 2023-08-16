@@ -85,65 +85,9 @@ button:active {
     cursor: pointer;
 }
 
-.sidebar {
-    width: 400px;
-    height: 100vh;
-    z-index: 0;
-    position: fixed;
-    background-color: #1e2e4e;
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    padding: 15px;
-}
-
-.letter-t {
-    font-family: 'Yuji Hentaigana Akebono', cursive;
-    font-size: 80px;
-    letter-spacing: -15px;
-}
-
 .fa-magnifying-glass {
     font-size: 35px;
     position: absolute;
     left: 30px;
     top: 12px;
-}
-
-.gpt-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 500px;
-}
-
-.gpt-btn {
-    width: 230px;
-    padding: 15px;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.instructions {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    font-size: 25px;
-    line-height: 50px;
-    letter-spacing: 1.5px;
-}
-
-.world {
-    width: 350px;
-}
-
-.logo {
-    align-self: center;
 }

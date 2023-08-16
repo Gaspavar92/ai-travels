@@ -3,8 +3,14 @@ import { useState } from 'react';
 import Place from './components/Place';
 import Itinerary from './components/Itinerary'
 import MyLocations from './components/MyLocations';
+import Instructions from './components/Instructions';
+import Sidebar from './components/Sidebar';
+import SignIn from './components/SignIn';
 
 import './App.css'
+
+import { onAuthStateChanged } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 function App() {
 
@@ -16,8 +22,11 @@ function App() {
   const [showItinerary, setShowItinerary] = useState(false);
   const [showInstructions, setShowInstructions] = useState(true);
   const [showLocations, setShowLocations] = useState(false);
-
   const [selectedPlace, setSelectedPlace] = useState({});
+
+  // Handling authenticated users
+
+  const [user, setUser] = useState(null);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -61,33 +70,12 @@ function App() {
 
   return (
     <>
-        <div className="sidebar">
-          <h1><span className="ai">AI</span> <span className="letter-t">T</span>ravels</h1>
-          <div className="gpt-buttons">
-            <button className='search-place gpt-btn' onClick={handlePlace}><i className="fa-regular fa-map"></i>Instructions</button>
-            <button className='gpt-btn' onClick={handleLocations}><i className="fa-solid fa-heart"></i>My Locations</button>
-          </div>
-          <div className="logo">
-            <img className='world' src="/logo.png" alt="3d world map" />
-          </div>
-        </div>
-
+      <Sidebar handlePlace={handlePlace} handleLocations={handleLocations}/>
       <main>
         <Place userPlace={place} show={showPlace} createItinerary={handleItinerary}/>
         <Itinerary placeInfo={selectedPlace} show={showItinerary}/>
-        {showInstructions && 
-        <div className='instructions'>
-          <h2 className="section-title">Instructions</h2>
-          <ol>
-            <li>Use the Search Bar to look for a location you would like to visit</li>
-            <li>Choose the number of days for your trip and create an itinerary</li>
-            <li>You can save your itinerary and access it from the My Locations tab</li>
-            <li>In order to start again, simply look for another place</li>
-            <li>Enjoy your trip!</li>
-          </ol>
-        </div>}
         <MyLocations show={showLocations} />
-
+        <Instructions show={showInstructions} />
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>
           <input type="text" onChange={handleChange} className='text-field' value={search} placeholder='Search for a location...' required/>
