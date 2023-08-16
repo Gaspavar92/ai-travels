@@ -4,7 +4,7 @@ import "./styles/SignIn.css"
 // import { app } from "./Firebase";
    
 
-const SignIn = () => {
+const SignIn = ({show, handleSignUp}) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -32,16 +32,21 @@ const SignIn = () => {
             });
     }
 
+    if (!show) return null;
+
     return (
-        <div className="sign-up">
-        <form action="#" onSubmit={signIn}>
-            <label htmlFor="email">E-Mail</label>
-            <input type="email" value={email} onChange={(e) => {setEmail(e.target.value)}} required/>
-            <label htmlFor="password">Password</label>
-            <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} required/>
-            <button type="submit">Sign In</button>
-        </form>
-        <p>Not signed up yet? </p><button className="already-signed-up">Sign Up</button>
+        <div className="sign-in">
+            <h2>Sign In</h2>
+            <form action="#" onSubmit={signIn} className="sign-in-form">
+                <label htmlFor="email">E-Mail</label>
+                <input type="email" value={email} onChange={(e) => {setEmail(e.target.value)}} className="email" required/>
+                <label htmlFor="password">Password</label>
+                <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} className="password" required/>
+                <button type="submit" className="sign-in-button">Sign In</button>
+            </form>
+            <div className="not-yet-signed">
+                <p>Not signed up yet?</p><a onClick={handleSignUp}>Sign Up</a>
+            </div>
         </div>
     )
 }

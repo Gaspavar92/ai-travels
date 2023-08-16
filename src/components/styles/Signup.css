@@ -1,3 +1,34 @@
-form {
-    margin-bottom: 100px;
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    align-self: center;
+    height: 80vh;
+    justify-content: center;
+    gap: 20px;
+    letter-spacing: 2px;
+}
+
+.sign-up h2 {
+    text-align: center;
+}
+
+.already-signed {
+    display: flex;
+    gap: 10px;
+    letter-spacing: 2px;
+    align-self: center;
+}
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sign-up-button {
+    width: 300px;
+    align-self: center;
+    padding: 15px;
+    border-radius: 50px;
 }

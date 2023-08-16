@@ -14,6 +14,14 @@ h1, .section-title {
     padding: 40px 0;
 }
 
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 body {
     background-color: #384160;
     color: white;
@@ -22,6 +30,8 @@ body {
 
 main {
     margin-left: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 button {
@@ -90,4 +100,8 @@ button:active {
     position: absolute;
     left: 30px;
     top: 12px;
+}
+
+.email, .password {
+    height: 40px;
 }

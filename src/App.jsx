@@ -6,6 +6,7 @@ import MyLocations from './components/MyLocations';
 import Instructions from './components/Instructions';
 import Sidebar from './components/Sidebar';
 import SignIn from './components/SignIn';
+import SignUp from './components/Signup';
 
 import './App.css'
 
@@ -24,14 +25,14 @@ function App() {
   const [showLocations, setShowLocations] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState({});
 
+  // Showing sign up or sign in dynamically
+
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+
   // Handling authenticated users
 
   const [user, setUser] = useState(null);
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearch(e.target.value)
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,6 +41,8 @@ function App() {
       setShowPlace(true);
       setShowInstructions(false)
       setShowLocations(false);
+      setShowSignUp(false);
+      setShowSignIn(false);
       setPlace(search);
       setSearch('');
     }
@@ -52,6 +55,8 @@ function App() {
       setShowItinerary(true);
       setShowInstructions(false);
       setShowLocations(false);
+      setShowSignUp(false);
+      setShowSignIn(false);
   }
 
   const handlePlace = () => {
@@ -59,6 +64,8 @@ function App() {
     setShowInstructions(true);
     setShowPlace(false);
     setShowLocations(false);
+    setShowSignUp(false);
+    setShowSignIn(false);
   }
 
   const handleLocations = () => {
@@ -66,19 +73,41 @@ function App() {
     setShowItinerary(false);
     setShowInstructions(false)
     setShowPlace(false)
+    setShowSignUp(false);
+    setShowSignIn(false);
   }
+
+  const handleSignUp = () => {
+    setShowSignUp(true);
+    setShowSignIn(false);
+    setShowLocations(false);
+    setShowItinerary(false);
+    setShowInstructions(false)
+    setShowPlace(false)
+  };
+
+  const handleSignIn = () => {
+    setShowSignUp(false);
+    setShowSignIn(true);
+    setShowLocations(false);
+    setShowItinerary(false);
+    setShowInstructions(false)
+    setShowPlace(false)
+  };
 
   return (
     <>
-      <Sidebar handlePlace={handlePlace} handleLocations={handleLocations}/>
+      <Sidebar handlePlace={handlePlace} handleLocations={handleLocations} handleSignUp={handleSignUp} handleSignIn={handleSignIn}/>
       <main>
         <Place userPlace={place} show={showPlace} createItinerary={handleItinerary}/>
         <Itinerary placeInfo={selectedPlace} show={showItinerary}/>
+        <SignUp show={showSignUp} handleSignIn={handleSignIn}/>
+        <SignIn show={showSignIn} handleSignUp={handleSignUp}/>
         <MyLocations show={showLocations} />
         <Instructions show={showInstructions} />
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>
-          <input type="text" onChange={handleChange} className='text-field' value={search} placeholder='Search for a location...' required/>
+          <input type="text" onChange={(e) => {setSearch(e.target.value)}} className='text-field' value={search} placeholder='Search for a location...' required/>
           <button type='submit' className='submit-button'>Search</button>
         </form>
       </main>
