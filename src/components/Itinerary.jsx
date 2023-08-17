@@ -10,6 +10,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
 
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     async function getResponse() {
         
@@ -42,23 +43,27 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
     let responseKey;
     
     const saveTrip = (e) => {
-        if (e.target.textContent == "Save Itinerary") {
-            e.target.textContent = "Saved";
-            e.target.classList.add('saved');
-            const userPath = `users/${userInfo.uid}/savedTrips`;
-            const dbRef = ref(database, userPath);
-            const trip = push(dbRef, response);
-            console.log(trip.key)
-            responseKey = trip.key;
-        } else if (e.target.textContent = "Saved") {
-            e.target.textContent = "Save Itinerary";
-            e.target.classList.remove('saved');
-            if (responseKey) {
+        if (userInfo) {
+            if (e.target.textContent == "Save Itinerary") {
+                e.target.textContent = "Saved";
+                e.target.classList.add('saved');
                 const userPath = `users/${userInfo.uid}/savedTrips`;
-                const childRef = ref(database, `${userPath}/${responseKey}`);
-                remove(childRef);
-                responseKey = "";
+                const dbRef = ref(database, userPath);
+                const trip = push(dbRef, response);
+                console.log(trip.key)
+                responseKey = trip.key;
+            } else if (e.target.textContent = "Saved") {
+                e.target.textContent = "Save Itinerary";
+                e.target.classList.remove('saved');
+                if (responseKey) {
+                    const userPath = `users/${userInfo.uid}/savedTrips`;
+                    const childRef = ref(database, `${userPath}/${responseKey}`);
+                    remove(childRef);
+                    responseKey = "";
+                }
             }
+        } else {
+            setError('You need to be logged in.')
         }
     };
 
@@ -66,6 +71,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
 
     useEffect(() => {
         if (!show) return;
+        setError('');
         getResponse();
     }, [show])
 
@@ -78,6 +84,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
         <h2 className="section-title">Itinerary</h2>
         <p dangerouslySetInnerHTML={{ __html: response.itinerary }}></p>
             <button className="save-itinerary" onClick={(e) => saveTrip(e)}>Save Itinerary</button>
+            {error && <p>{error}</p>}
         </div>
     )
 };
