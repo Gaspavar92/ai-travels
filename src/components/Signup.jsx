@@ -35,6 +35,8 @@ const SignUp = ({show, handleSignIn}) => {
     if (!show) return null;
 
     return (
+        error ?
+        <p className="error">{error}</p> :
         <div className="sign-up">
             <h2>Sign Up</h2>
             <form action="#" onSubmit={signUp} className="sign-up-form">
