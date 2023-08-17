@@ -1,7 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import './styles/SignUp.css'
-// import { app } from "./Firebase";
    
 
 const SignUp = ({show, handleSignIn}) => {

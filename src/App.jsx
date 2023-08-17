@@ -5,8 +5,8 @@ import Itinerary from './components/Itinerary'
 import MyLocations from './components/MyLocations';
 import Instructions from './components/Instructions';
 import Sidebar from './components/Sidebar';
-import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 import UserDetails from './components/UserDetails';
 
 import './App.css'
