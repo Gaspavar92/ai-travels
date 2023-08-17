@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import "./styles/Signup.css"
    
@@ -7,6 +7,7 @@ const SignUp = ({show, handleSignIn}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [username, setUsername] = useState('');
 
     // Initializing authentication with Firebase
     
@@ -17,6 +18,7 @@ const SignUp = ({show, handleSignIn}) => {
             .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+            updateProfile(user, {displayName: username})
             // ...
             })
             .catch((error) => {
@@ -26,6 +28,7 @@ const SignUp = ({show, handleSignIn}) => {
             }).finally(() => {
                 setEmail('');
                 setPassword('');
+                setUsername('');
             });
     }
 
@@ -35,6 +38,8 @@ const SignUp = ({show, handleSignIn}) => {
         <div className="sign-up">
             <h2>Sign Up</h2>
             <form action="#" onSubmit={signUp} className="sign-up-form">
+                <label htmlFor="name">Name</label>
+                <input type="text" value={username} onChange={(e) => {setUsername(e.target.value)}} className="name" required/>
                 <label htmlFor="email">E-Mail</label>
                 <input type="email" value={email} onChange={(e) => {setEmail(e.target.value)}} className="email" required/>
                 <label htmlFor="password">Password</label>

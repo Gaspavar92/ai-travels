@@ -59,7 +59,7 @@ const MyLocations = ({show, userInfo}) => {
         <p className="no-itinerary">You didn't save an itinerary yet.</p> :
         <>
             <h2 className="section-title">My Locations</h2>
-            <p>Locations for {userInfo.email}</p>
+            <p>Locations for {userInfo.displayName}</p>
             <div className="saved-locations">
                 {locations.map(location => {
                     return (

@@ -109,7 +109,3 @@ button:active {
     left: 30px;
     top: 12px;
 }
-
-.email, .password {
-    height: 40px;
-}

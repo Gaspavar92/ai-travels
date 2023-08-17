@@ -102,14 +102,14 @@ function App() {
   return (
     <>
       <Sidebar handlePlace={handlePlace} handleLocations={handleLocations} handleSignUp={handleSignUp} handleSignIn={handleSignIn}/>
-      <UserDetails getUserInfo={getUserInfo}/>
+      <UserDetails getUserInfo={getUserInfo} />
 
       <main>
         <Place userPlace={place} show={showPlace} createItinerary={handleItinerary}/>
         <Itinerary placeInfo={selectedPlace} show={showItinerary} userInfo={user}/>
-        <SignUp show={showSignUp} handleSignIn={handleSignIn}/>
+        <SignUp show={showSignUp} handleSignIn={handleSignIn} />
         <SignIn show={showSignIn} handleSignUp={handleSignUp}/>
-        {user && <MyLocations show={showLocations} userInfo={user}/>}
+        {user && <MyLocations show={showLocations} userInfo={user} />}
         <Instructions show={showInstructions} />
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>

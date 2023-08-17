@@ -37,8 +37,8 @@
     overflow-y: auto;
     padding: 20px;
     z-index: 2;
-    top: calc(50% - 350px);
-    left: calc(50% - 350px);
+    top: 15%;
+    left: calc(15% + 300px);
     display: block;
 }
 

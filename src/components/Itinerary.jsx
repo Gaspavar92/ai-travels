@@ -50,7 +50,6 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
                 const userPath = `users/${userInfo.uid}/savedTrips`;
                 const dbRef = ref(database, userPath);
                 const trip = push(dbRef, response);
-                console.log(trip.key)
                 responseKey = trip.key;
             } else if (e.target.textContent = "Saved") {
                 e.target.textContent = "Save Itinerary";

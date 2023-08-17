@@ -33,3 +33,7 @@
     padding: 15px;
     border-radius: 50px;
 }
+
+.email, .password, .name {
+    height: 40px;
+}

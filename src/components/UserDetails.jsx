@@ -33,7 +33,7 @@ const UserDetails = ({getUserInfo}) => {
     return (
         authUser ? 
         <div className='login-info'>
-            <p>Hello, {authUser.email}</p>
+            <p>Hello, {authUser.displayName}</p>
             <a onClick={userSignOut}>SIGN OUT</a>
         </div> :
         <div className='login-info'>
