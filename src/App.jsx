@@ -6,7 +6,7 @@ import MyLocations from './components/MyLocations';
 import Instructions from './components/Instructions';
 import Sidebar from './components/Sidebar';
 import SignIn from './components/SignIn';
-import SignUp from './components/Signup';
+import SignUp from './components/SignUp';
 import UserDetails from './components/UserDetails';
 
 import './App.css'
