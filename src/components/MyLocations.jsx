@@ -26,12 +26,12 @@ const MyLocations = ({show, userInfo}) => {
     }
 
     const removeLocation = (e) => {
-        const childRef = ref(database, `/${e.target.parentElement.firstChild.id}`);
+        const childRef = ref(database, `/users/${userInfo.uid}/savedTrips/${e.target.parentElement.firstChild.id}`);
         remove(childRef);
         onValue(dbRef, () => {
             const updatedPlaces = [];
             get(dbRef).then(res => {
-                const data = res.val();
+                const data = res.val()?.users[userInfo.uid].savedTrips;
                 for (let key in data) {
                     updatedPlaces.push({key: key, value: data[key]});
                 }
@@ -43,7 +43,7 @@ const MyLocations = ({show, userInfo}) => {
     useEffect(() => {
         onValue(dbRef, () => {
             get(dbRef).then(res => {
-                const data = res.val();
+                const data = res.val()?.users[userInfo.uid].savedTrips;
                 for (let key in data) {
                     places.push({key: key, value: data[key]});
                 }

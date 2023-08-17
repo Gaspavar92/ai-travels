@@ -3,10 +3,10 @@ import { Configuration, OpenAIApi } from 'openai';
 import { push, remove, ref } from "firebase/database";
 import "./styles/Itinerary.css"
 
-import { database, dbRef } from './Firebase';
+import { database } from './Firebase';
 import Loading from "./Loading";
 
-const Itinerary = ({placeInfo, show}) => {
+const Itinerary = ({placeInfo, show, userInfo}) => {
 
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
@@ -45,14 +45,19 @@ const Itinerary = ({placeInfo, show}) => {
         if (e.target.textContent == "Save Itinerary") {
             e.target.textContent = "Saved";
             e.target.classList.add('saved');
-            const newResponseRef = push(dbRef, response);
-            responseKey = newResponseRef.key;
+            const userPath = `users/${userInfo.uid}/savedTrips`;
+            const dbRef = ref(database, userPath);
+            const trip = push(dbRef, response);
+            console.log(trip.key)
+            responseKey = trip.key;
         } else if (e.target.textContent = "Saved") {
             e.target.textContent = "Save Itinerary";
             e.target.classList.remove('saved');
             if (responseKey) {
-                const childRef = ref(database, `/${responseKey}`);
+                const userPath = `users/${userInfo.uid}/savedTrips`;
+                const childRef = ref(database, `${userPath}/${responseKey}`);
                 remove(childRef);
+                responseKey = "";
             }
         }
     };

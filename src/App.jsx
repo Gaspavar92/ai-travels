@@ -106,7 +106,7 @@ function App() {
 
       <main>
         <Place userPlace={place} show={showPlace} createItinerary={handleItinerary}/>
-        <Itinerary placeInfo={selectedPlace} show={showItinerary}/>
+        <Itinerary placeInfo={selectedPlace} show={showItinerary} userInfo={user}/>
         <SignUp show={showSignUp} handleSignIn={handleSignIn}/>
         <SignIn show={showSignIn} handleSignUp={handleSignUp}/>
         {user && <MyLocations show={showLocations} userInfo={user}/>}
