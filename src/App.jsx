@@ -7,11 +7,9 @@ import Instructions from './components/Instructions';
 import Sidebar from './components/Sidebar';
 import SignIn from './components/SignIn';
 import SignUp from './components/Signup';
+import UserDetails from './components/UserDetails';
 
 import './App.css'
-
-import { onAuthStateChanged } from 'firebase/auth';
-import { getAuth } from 'firebase/auth';
 
 function App() {
 
@@ -30,9 +28,15 @@ function App() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
 
-  // Handling authenticated users
+  // Setting user info from authentication
 
   const [user, setUser] = useState(null);
+
+  const getUserInfo = (userInfo) => {
+    setUser(userInfo)
+  };
+
+  // Defining functions to dynamically render components
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,12 +102,14 @@ function App() {
   return (
     <>
       <Sidebar handlePlace={handlePlace} handleLocations={handleLocations} handleSignUp={handleSignUp} handleSignIn={handleSignIn}/>
+      <UserDetails getUserInfo={getUserInfo}/>
+
       <main>
         <Place userPlace={place} show={showPlace} createItinerary={handleItinerary}/>
         <Itinerary placeInfo={selectedPlace} show={showItinerary}/>
         <SignUp show={showSignUp} handleSignIn={handleSignIn}/>
         <SignIn show={showSignIn} handleSignUp={handleSignUp}/>
-        <MyLocations show={showLocations} />
+        {user && <MyLocations show={showLocations} userInfo={user}/>}
         <Instructions show={showInstructions} />
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>

@@ -44,7 +44,7 @@ const SignUp = ({show, handleSignIn}) => {
                 <button type="submit" className="sign-up-button">Sign up</button>
             </form>
             <div className="already-signed">
-            <p>Already signed up? </p><a onClick={handleSignIn}>Sign In</a>
+            <p>Already have an account? </p><a onClick={handleSignIn}>Sign In</a>
             </div>
         </div>
     )

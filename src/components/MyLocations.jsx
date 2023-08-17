@@ -4,7 +4,7 @@ import { get, onValue, ref, remove } from "firebase/database";
 
 import './styles/MyLocations.css'
 
-const MyLocations = ({show}) => {
+const MyLocations = ({show, userInfo}) => {
 
     const [locations, setLocations] = useState([]);
     const places = [];
@@ -53,12 +53,13 @@ const MyLocations = ({show}) => {
     }, [show]);
 
     if (!show) return null;
-
+    
     return (
         locations.length === 0 ?
         <p className="no-itinerary">You didn't save an itinerary yet.</p> :
         <>
             <h2 className="section-title">My Locations</h2>
+            <p>Locations for {userInfo.email}</p>
             <div className="saved-locations">
                 {locations.map(location => {
                     return (

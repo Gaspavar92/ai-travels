@@ -19,7 +19,6 @@ const SignIn = ({show, handleSignUp}) => {
             .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user)
             // ...
             })
             .catch((error) => {
@@ -45,7 +44,7 @@ const SignIn = ({show, handleSignUp}) => {
                 <button type="submit" className="sign-in-button">Sign In</button>
             </form>
             <div className="not-yet-signed">
-                <p>Not signed up yet?</p><a onClick={handleSignUp}>Sign Up</a>
+                <p>Not signed up yet?</p><a onClick={handleSignUp}>Create account</a>
             </div>
         </div>
     )
