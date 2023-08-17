@@ -5,7 +5,7 @@ import Itinerary from './components/Itinerary'
 import MyLocations from './components/MyLocations';
 import Instructions from './components/Instructions';
 import Sidebar from './components/Sidebar';
-import SignUp from './components/SignUp';
+import SignUp from './components/Signup';
 import SignIn from './components/SignIn';
 import UserDetails from './components/UserDetails';
 

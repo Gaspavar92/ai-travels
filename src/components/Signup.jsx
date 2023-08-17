@@ -2,7 +2,6 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import './styles/SignUp.css'
    
-
 const SignUp = ({show, handleSignIn}) => {
 
     const [email, setEmail] = useState('');
@@ -48,5 +47,6 @@ const SignUp = ({show, handleSignIn}) => {
         </div>
     )
 }
+
 
 export default SignUp;
