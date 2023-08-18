@@ -117,7 +117,7 @@ function App() {
         <Itinerary placeInfo={selectedPlace} show={showItinerary} userInfo={user}/>
         <SignUp show={showSignUp} handleSignIn={handleSignIn} onSignUp={onSignUp}/>
         <SignIn show={showSignIn} handleSignUp={handleSignUp}/>
-        {user && <MyLocations show={showLocations} userInfo={user} />}
+        <MyLocations show={showLocations} userInfo={user} />
         <Instructions show={showInstructions} />
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass"></i>

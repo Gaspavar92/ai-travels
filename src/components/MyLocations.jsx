@@ -50,9 +50,17 @@ const MyLocations = ({show, userInfo}) => {
             })
         })
         setLocations(places)
-    }, [show]);
+    }, [show, userInfo]);
 
     if (!show) return null;
+
+    if (!userInfo) {
+        return (
+            <>
+            <p className="no-user">You need to be logged in to see your locations</p>
+            </>
+        )
+    }
     
     return (
         locations.length === 0 ?
