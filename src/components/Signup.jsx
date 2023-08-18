@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase
 import { useState } from "react";
 import "./styles/Signup.css"
    
-const SignUp = ({show, handleSignIn}) => {
+const SignUp = ({show, handleSignIn, onSignUp}) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -18,10 +18,11 @@ const SignUp = ({show, handleSignIn}) => {
             .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            updateProfile(user, {displayName: username})
-            // ...
+            updateProfile(user, {displayName: username}).then(() => {
+                onSignUp(user.displayName);
             })
-            .catch((error) => {
+            // ...
+            }).catch((error) => {
             const errorMessage = error.message;
             setError(errorMessage);
             // ..

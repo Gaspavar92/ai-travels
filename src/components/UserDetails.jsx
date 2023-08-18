@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import './styles/UserDetails.css'
 
-const UserDetails = ({getUserInfo}) => {
+const UserDetails = ({getUserInfo, username}) => {
 
     const [authUser, setAuthUser] = useState(null);
     const auth = getAuth();
@@ -12,8 +12,9 @@ const UserDetails = ({getUserInfo}) => {
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setAuthUser(user);
-                getUserInfo(user);
+                    setAuthUser(user);
+                    getUserInfo(user);
+                
             } else {
                 setAuthUser(null);
                 getUserInfo(null);
@@ -24,7 +25,7 @@ const UserDetails = ({getUserInfo}) => {
             listen();
         }
 
-    }, [])
+    }, []);
 
     const userSignOut = () => {
         signOut(auth);
@@ -33,7 +34,7 @@ const UserDetails = ({getUserInfo}) => {
     return (
         authUser ? 
         <div className='login-info'>
-            <p>Hello, {authUser.displayName}</p>
+            <p>Hello, {username ? username : authUser.displayName}</p>
             <a onClick={userSignOut}>SIGN OUT</a>
         </div> :
         <div className='login-info'>

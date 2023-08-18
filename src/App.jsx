@@ -36,6 +36,14 @@ function App() {
     setUser(userInfo)
   };
 
+  // Getting username to avoid asynchronous response delay
+
+  const [username, setUsername] = useState('');
+
+  const onSignUp = (name) => {
+      setUsername(name);
+  };
+
   // Defining functions to dynamically render components
 
   const handleSubmit = (e) => {
@@ -102,12 +110,12 @@ function App() {
   return (
     <>
       <Sidebar handlePlace={handlePlace} handleLocations={handleLocations} handleSignUp={handleSignUp} handleSignIn={handleSignIn}/>
-      <UserDetails getUserInfo={getUserInfo} />
+      <UserDetails getUserInfo={getUserInfo} username={username}/>
 
       <main>
         <Place userPlace={place} show={showPlace} createItinerary={handleItinerary}/>
         <Itinerary placeInfo={selectedPlace} show={showItinerary} userInfo={user}/>
-        <SignUp show={showSignUp} handleSignIn={handleSignIn} />
+        <SignUp show={showSignUp} handleSignIn={handleSignIn} onSignUp={onSignUp}/>
         <SignIn show={showSignIn} handleSignUp={handleSignUp}/>
         {user && <MyLocations show={showLocations} userInfo={user} />}
         <Instructions show={showInstructions} />
