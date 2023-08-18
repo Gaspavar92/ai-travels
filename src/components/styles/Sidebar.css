@@ -6,6 +6,7 @@
     background-color: #1e2e4e;
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 0px 20px black;
 }
 
 .letter-t {
