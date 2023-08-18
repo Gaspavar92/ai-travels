@@ -1,5 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles/Signup.css"
    
 const SignUp = ({show, handleSignIn, onSignUp}) => {
@@ -10,6 +10,10 @@ const SignUp = ({show, handleSignIn, onSignUp}) => {
     const [username, setUsername] = useState('');
 
     // Initializing authentication with Firebase
+
+    useEffect(() => {
+        setError('');
+    }, [show]);
     
     const signUp = (e) => {
         e.preventDefault();
@@ -17,6 +21,7 @@ const SignUp = ({show, handleSignIn, onSignUp}) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
             // Signed in 
+            setError('');
             const user = userCredential.user;
             updateProfile(user, {displayName: username}).then(() => {
                 onSignUp(user.displayName);
@@ -36,8 +41,6 @@ const SignUp = ({show, handleSignIn, onSignUp}) => {
     if (!show) return null;
 
     return (
-        error ?
-        <p className="error">{error}</p> :
         <div className="sign-up">
             <h2>Sign Up</h2>
             <form action="#" onSubmit={signUp} className="sign-up-form">
@@ -52,6 +55,7 @@ const SignUp = ({show, handleSignIn, onSignUp}) => {
             <div className="already-signed">
             <p>Already have an account? </p><a onClick={handleSignIn}>Sign In</a>
             </div>
+            {error && <p className="error">{error}</p>}
         </div>
     )
 }

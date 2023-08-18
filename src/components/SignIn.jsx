@@ -1,5 +1,5 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/SignIn.css"
 // import { app } from "./Firebase";
    
@@ -10,6 +10,10 @@ const SignIn = ({show, handleSignUp}) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    useEffect(() => {
+        setError('');
+    }, [show]);
+
     // Initializing authentication with Firebase
     
     const signIn = (e) => {
@@ -17,6 +21,7 @@ const SignIn = ({show, handleSignUp}) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                setError('');
             // Signed in 
             const user = userCredential.user;
             // ...
@@ -34,8 +39,6 @@ const SignIn = ({show, handleSignUp}) => {
     if (!show) return null;
 
     return (
-        error ?
-        <p className="error">{error}</p> :
         <div className="sign-in">
             <h2>Sign In</h2>
             <form action="#" onSubmit={signIn} className="sign-in-form">
@@ -48,6 +51,7 @@ const SignIn = ({show, handleSignUp}) => {
             <div className="not-yet-signed">
                 <p>Not signed up yet?</p><a onClick={handleSignUp}>Create account</a>
             </div>
+            {error && <p className="error">{error}</p>}
         </div>
     )
 }

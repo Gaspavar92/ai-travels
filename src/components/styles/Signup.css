@@ -40,7 +40,6 @@
 
 .error {
     text-align: center;
-    margin: 30% auto;
-    font-size: 35px;
     letter-spacing: 1.5px;
+    color: rgb(199, 68, 42);
 }
