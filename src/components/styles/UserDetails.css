@@ -4,4 +4,13 @@
     display: flex;
     gap: 10px;
     letter-spacing: 1.5px;
+    right: 5px;
+    top: 5px;
+    transition: .3s;
+    border-radius: 10px;
+}
+
+.login-info:hover {
+    background-color: #1e2e4e;
+    box-shadow: 1px 1px 5px black;
 }
