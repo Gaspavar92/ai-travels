@@ -69,3 +69,11 @@ h2, h3 {
     padding: 10px;
     border-radius: 50px;
 }
+
+.place-error {
+    font-size: 25px;
+    text-align: center;
+    align-self: center;
+    margin: 0 auto;
+    letter-spacing: 1.5px;
+}

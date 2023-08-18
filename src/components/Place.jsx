@@ -6,6 +6,7 @@ const Place = ({userPlace, show, createItinerary}) => {
 
     const [places, setPlaces] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleClick = (e, name, address, image, rating, types, numberOfDays) => {
         if (numberOfDays) {
@@ -27,6 +28,7 @@ const Place = ({userPlace, show, createItinerary}) => {
         
         try {
             setLoading(true);
+            setError('');
             const response = await fetch(url);
             const data = await response.json();
             const places = data.results;
@@ -62,7 +64,7 @@ const Place = ({userPlace, show, createItinerary}) => {
             
             setPlaces(placesWithPics);
         } catch {
-            console.log('ERROR!')
+            setError('Something went wrong. Please try again.')
         } finally {
             setLoading(false);
         }
@@ -77,6 +79,13 @@ const Place = ({userPlace, show, createItinerary}) => {
     }, [userPlace, show])
 
         if (!show) return null;
+        if (error) return (
+            <>
+                <ul className="all-places">
+                    <p className="place-error">{error}</p>
+                </ul>
+            </>
+        );
 
         return (
             loading ?
@@ -84,20 +93,23 @@ const Place = ({userPlace, show, createItinerary}) => {
             <>
                 <h2 className="section-title">Search Results</h2>
                 <ul className="all-places">
-                    {places.map((place) => {
-                        return (
-                                <li key={place.place_id} className="list-place">
-                                    <h2>{place.name}</h2>
-                                    {place.formatted_address && <h3>{place.formatted_address}</h3>}
-                                    <img src={place.url} className="location"></img>
-                                    <form className="days">
-                                        <label htmlFor="number">Number of days:</label>
-                                        <input type="number" className="number-of-days" id="number" min={0} required/>
-                                        <button className="select-button" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[1].value)}}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
-                                    </form>
-                                </li>
-                        )
-                    })}
+                {places.length === 0 ? 
+                <p className="place-error">No location found</p> :
+                places.map((place) => {
+                    return (
+                            <li key={place.place_id} className="list-place">
+                                <h2>{place.name}</h2>
+                                {place.formatted_address && <h3>{place.formatted_address}</h3>}
+                                <img src={place.url} className="location"></img>
+                                <form className="days">
+                                    <label htmlFor="number">Number of days:</label>
+                                    <input type="number" className="number-of-days" id="number" min={0} required/>
+                                    <button className="select-button" onClick={(e) => {handleClick(e, place.name, place.formatted_address, place.url, place.rating, place.types, e.target.parentNode.children[1].value)}}><i className="fa-solid fa-earth-americas"></i>Create Itinerary</button>
+                                </form>
+                            </li>
+                    )
+                })
+            }
                 </ul>
             </>
         )
