@@ -32,4 +32,15 @@ a {
 .saved:hover {
     background-color: rgb(0, 183, 0);
 }
+.itinerary-error {
+    align-self: center;
+    margin: 30% auto;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+.login-error {
+    color: rgb(199, 68, 42);
+    margin-top: 10px;
+}
 

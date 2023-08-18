@@ -10,6 +10,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
 
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
+    const [loginError, setLoginError] = useState('');
     const [error, setError] = useState('');
 
     async function getResponse() {
@@ -17,6 +18,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
         try {
             setLoading(true);
             setResponse('');
+            setError('');
             const apiKey = import.meta.env.VITE_API_KEY;
             
             const configuration = new Configuration({
@@ -32,7 +34,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
             
             setResponse(response);
         } catch {
-            console.log('ERROR!')
+            setError('Something went wrong. Please try again.')
         } finally {
             setLoading(false)
         }
@@ -44,6 +46,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
     
     const saveTrip = (e) => {
         if (userInfo) {
+            setLoginError('');
             if (e.target.textContent == "Save Itinerary") {
                 e.target.textContent = "Saved";
                 e.target.classList.add('saved');
@@ -62,7 +65,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
                 }
             }
         } else {
-            setError('You need to be logged in.')
+            setLoginError('You need to be logged in.')
         }
     };
 
@@ -75,6 +78,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
     }, [show])
 
     if (!show) return null;
+    if (error) return <p className="itinerary-error">{error}</p>;
 
     return (
         loading ?
@@ -83,7 +87,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
         <h2 className="section-title">Itinerary</h2>
         <p dangerouslySetInnerHTML={{ __html: response.itinerary }}></p>
             <button className="save-itinerary" onClick={(e) => saveTrip(e)}>Save Itinerary</button>
-            {error && <p>{error}</p>}
+            {loginError && <p className="login-error">{loginError}</p>}
         </div>
     )
 };
