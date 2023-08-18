@@ -130,3 +130,9 @@
 .open-overflow > .overflow {
     display: block;
 }
+
+.user-locations {
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 3.5px;
+}

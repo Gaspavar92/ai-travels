@@ -67,7 +67,7 @@ const MyLocations = ({show, userInfo}) => {
         <p className="no-itinerary">You didn't save an itinerary yet.</p> :
         <>
             <h2 className="section-title">My Locations</h2>
-            <p>Locations for {userInfo.displayName}</p>
+            <h3 className="user-locations">{userInfo.displayName}{userInfo.displayName.endsWith("s") ? "'" : "'s"} Saved Locations</h3>
             <div className="saved-locations">
                 {locations.map(location => {
                     return (
