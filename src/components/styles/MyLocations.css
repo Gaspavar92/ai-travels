@@ -107,7 +107,7 @@
     font-size: 25px;
     line-height: 50px;
     letter-spacing: 1.5px;
-    padding: 100% 0;
+    padding: 30% 0;
 }
 
 .close-btn {
@@ -175,5 +175,8 @@
         width: 100vw;
         left: 0;
         right: 0;
+    }
+    .no-itinerary, .no-user {
+        padding: 100% 0;
     }
 }
