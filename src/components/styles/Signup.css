@@ -46,12 +46,7 @@
 
 @media (max-width: 720px) {
     .sign-up {
-        width: 100%;
-        overflow-y: auto;
-    }
-
-    .sign-up h2 {
-        margin-top: 60px;
+        width: calc(100% - 80px);
     }
 
     .sign-up-button {

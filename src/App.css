@@ -45,6 +45,7 @@ main {
     flex-direction: column;
     transition: margin-left .3s;
     height: 100vh;
+    overflow-y: auto;
 }
 
 button {
@@ -127,8 +128,7 @@ button:active {
 
 @media (max-width: 1020px) {
     main {
-        margin-left: 100px;
-        width: calc(100% - 100px - 50px);
+        margin-left: 80px;
     }
 
     .get-place-form {

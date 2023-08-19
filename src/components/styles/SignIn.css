@@ -35,7 +35,7 @@
 
 @media (max-width: 720px) {
     .sign-in {
-        width: 100%;
+        width: calc(100% - 80px);
     }
 
     .sign-in-button {
