@@ -129,6 +129,7 @@ button:active {
 
     .get-place-form {
         width: 100%;
+        padding: 0 10px;
     }
 
     .section-title {
@@ -152,5 +153,11 @@ button:active {
 
     .text-field {
         padding-left: 10px;
+    }
+}
+
+@media (max-width: 620px) {
+    .get-place-form {
+        width: calc(100vw - 70px - 20px - 10px);
     }
 }
