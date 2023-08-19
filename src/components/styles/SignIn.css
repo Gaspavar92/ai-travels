@@ -3,10 +3,10 @@
     flex-direction: column;
     width: 450px;
     align-self: center;
-    height: 80vh;
     justify-content: center;
     gap: 20px;
     letter-spacing: 2px;
+    margin: 50% auto;
 }
 
 .sign-in h2 {

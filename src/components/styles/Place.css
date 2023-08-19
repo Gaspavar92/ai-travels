@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
-    height: 80vh;
     gap: 80px;
     padding-bottom: 120px;
 }

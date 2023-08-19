@@ -45,7 +45,6 @@ main {
     flex-direction: column;
     transition: margin-left .3s;
     height: 100vh;
-    justify-content: space-evenly;
 }
 
 button {
@@ -72,24 +71,26 @@ button:active {
 }
 
 .get-place-form {
-    bottom: 20px;
+    bottom: 0;
     width: calc(100% - 500px);
     display: flex;
     gap: 20px;
-    height: 60px;
     position: fixed;
+    background-color: #384160;
+    height: 100px;
+    align-items: center;
 }
 
-/* Needs to be optimized, current visual issue*/
-/* .get-place-form::after {
+.get-place-form::after {
     content: '';
-    height: 100px;
+    height: 50px;
     width: 100%;
     background-image: linear-gradient(to bottom, transparent, #384160 50%);
     display: block;
     bottom: 80px;
     position: absolute;
-} */
+    left: 0;
+}
 
 .text-field {
     width: 70%;
@@ -113,18 +114,21 @@ button:active {
     align-items: center;
 }
 
+.text-field, .submit-button {
+    height: 60px;
+}
+
 .fa-magnifying-glass {
     font-size: 35px;
     position: absolute;
-    left: 30px;
-    top: 12px;
+    left: 25px;
+    top: 30px;
 }
 
 @media (max-width: 1020px) {
     main {
         margin-left: 100px;
         width: calc(100% - 100px - 50px);
-        justify-content: initial;
     }
 
     .get-place-form {
