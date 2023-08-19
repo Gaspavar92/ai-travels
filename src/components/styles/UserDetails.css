@@ -14,3 +14,10 @@
     background-color: #1e2e4e;
     box-shadow: 1px 1px 5px black;
 }
+
+@media (max-width: 1020px) {
+    .login-info {
+        background-color: #1e2e4e;
+        box-shadow: 1px 1px 5px black;
+    }
+}

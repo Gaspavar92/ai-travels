@@ -1,8 +1,18 @@
 import "./styles/Sidebar.css";
 
 const Sidebar = ({handlePlace, handleLocations, handleSignIn}) => {
+
+  // Function to open sidebar menu
+
+  const openMenu = (e) => {
+    e.currentTarget.parentElement.classList.toggle('open-sidebar');
+  }
+
     return (
         <div className="sidebar">
+          <div className="hamburger-icon" onClick={openMenu}>
+            <span></span>
+          </div>
         <h1><span className="ai">AI</span> <span className="letter-t">T</span>ravels</h1>
         <div className="gpt-buttons">
           <button className='search-place gpt-btn' onClick={handlePlace}><i className="fa-regular fa-map"></i>Instructions</button>

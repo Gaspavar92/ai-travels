@@ -1,12 +1,13 @@
 .sidebar {
     width: 400px;
     height: 100vh;
-    z-index: 0;
+    z-index: 1;
     position: fixed;
     background-color: #1e2e4e;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 20px black;
+    transition: width .3s;
 }
 
 .letter-t {
@@ -38,4 +39,65 @@
 
 .logo {
     align-self: center;
+}
+
+.hamburger-icon {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.hamburger-icon > span {
+    height: 3px;
+    width: 30px;
+    background-color: white;
+    display: block;
+    border-radius: 10px;
+}
+
+.hamburger-icon::after, .hamburger-icon::before {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.hamburger-icon::before {
+    margin-bottom: 5px;
+}
+
+.hamburger-icon::after {
+    margin-top: 5px;
+}
+
+@media (max-width: 1020px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .open-sidebar {
+        width: 400px;
+    }
+    
+    .sidebar > * {
+        opacity: 0;
+    }
+
+    .open-sidebar > * {
+        opacity: 1;
+    }
+
+    .hamburger-icon {
+        display: block;
+        opacity: 1;
+    }
+
+    .sidebar-icon {
+        display: block;
+    }
 }

@@ -6,20 +6,16 @@ html { box-sizing: border-box;}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+body, html {
+    overflow-x: hidden;
+}
+
 h1 {
     margin: 0;
     font-family: 'Moirai One', cursive;
     font-size: 40px;
     text-align: center;
     padding: 40px 0;
-}
-
-.section-title {
-    margin: 0;
-    font-family: 'Moirai One', cursive;
-    font-size: 40px;
-    text-align: center;
-    padding: 20px 0;
 }
 
 a {
@@ -40,6 +36,7 @@ main {
     margin-left: 500px;
     display: flex;
     flex-direction: column;
+    transition: margin-left .3s;
 }
 
 button {
@@ -108,4 +105,15 @@ button:active {
     position: absolute;
     left: 30px;
     top: 12px;
+}
+
+@media (max-width: 1020px) {
+    main {
+        margin-left: 100px;
+        width: calc(100% - 100px - 50px);
+    }
+
+    .get-place-form {
+        width: 80%;
+    }
 }

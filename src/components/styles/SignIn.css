@@ -32,3 +32,9 @@
     padding: 15px;
     border-radius: 50px;
 }
+
+@media (max-width: 720px) {
+    .sign-in {
+        width: 100%;
+    }
+}

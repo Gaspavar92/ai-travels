@@ -136,3 +136,28 @@
     text-align: center;
     letter-spacing: 3.5px;
 }
+
+.section-title {
+    margin: 0;
+    font-family: 'Moirai One', cursive;
+    font-size: 40px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+@media (max-width: 1020px) {
+    .section-title {
+        margin-top: 60px;
+    }
+
+    .remove-btn {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .saved-locations {
+        justify-content: center;
+        padding-bottom: 100px;
+        height: 60vh;
+    }
+}
