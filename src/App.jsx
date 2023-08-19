@@ -71,7 +71,9 @@ function App() {
       setShowSignIn(false);
   }
 
-  const handlePlace = () => {
+  const handlePlace = (e) => {
+    const sidebar = e.currentTarget.parentElement.parentElement;
+    sidebar.classList.remove('open-sidebar');
     setShowItinerary(false);
     setShowInstructions(true);
     setShowPlace(false);
@@ -80,7 +82,9 @@ function App() {
     setShowSignIn(false);
   }
 
-  const handleLocations = () => {
+  const handleLocations = (e) => {
+    const sidebar = e.currentTarget.parentElement.parentElement;
+    sidebar.classList.remove('open-sidebar');
     setShowLocations(true);
     setShowItinerary(false);
     setShowInstructions(false)
@@ -98,7 +102,9 @@ function App() {
     setShowPlace(false)
   };
 
-  const handleSignIn = () => {
+  const handleSignIn = (e) => {
+    const sidebar = e.currentTarget.parentElement.parentElement;
+    sidebar.classList.remove('open-sidebar');
     setShowSignUp(false);
     setShowSignIn(true);
     setShowLocations(false);
@@ -122,7 +128,7 @@ function App() {
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
           <i className="fa-solid fa-magnifying-glass mobile-search"></i>
           <input type="text" onChange={(e) => {setSearch(e.target.value)}} className='text-field' value={search} placeholder='Search for a location...' required/>
-          <button type='submit' className='submit-button'><i class="fa-solid fa-location-arrow"></i><span className='mobile-search'>Search</span></button>
+          <button type='submit' className='submit-button'><i className="fa-solid fa-location-arrow"></i><span className='mobile-search'>Search</span></button>
         </form>
       </main>
 
