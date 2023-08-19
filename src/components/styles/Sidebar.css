@@ -1,6 +1,5 @@
 .sidebar {
     width: 400px;
-    height: 100vh;
     z-index: 1;
     position: fixed;
     background-color: #1e2e4e;
@@ -8,6 +7,7 @@
     flex-direction: column;
     box-shadow: 0px 0px 20px black;
     transition: width .3s;
+    height: 100vh;
 }
 
 .letter-t {
@@ -83,13 +83,18 @@
     .open-sidebar {
         width: 400px;
     }
-    
+
     .sidebar > * {
         opacity: 0;
     }
+    
+    .sidebar > *:not(.hamburger-icon) {
+        transform: translateX(-1000px);
+    }
 
-    .open-sidebar > * {
+    .open-sidebar > *:not(.hamburger-icon) {
         opacity: 1;
+        transform: translateX(0);
     }
 
     .hamburger-icon {
@@ -99,5 +104,11 @@
 
     .sidebar-icon {
         display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .open-sidebar {
+        width: 100%;
     }
 }

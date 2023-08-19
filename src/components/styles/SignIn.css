@@ -37,4 +37,13 @@
     .sign-in {
         width: 100%;
     }
+
+    .sign-in-button {
+        width: 200px;
+    }
+
+    .not-yet-signed {
+        flex-direction: column;
+        text-align: center;
+    }
 }

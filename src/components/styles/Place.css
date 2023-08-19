@@ -77,3 +77,24 @@ h2, h3 {
     margin: 0 auto;
     letter-spacing: 1.5px;
 }
+
+@media (max-width: 1020px) {
+    .list-place {
+        width: 100vw;
+        padding: 20px 0;
+        min-width: unset;
+    }
+
+    .location {
+        width: 200px;
+        height: 150px;
+    }
+
+    .all-places {
+        padding-left: 0;
+    }
+
+    .select-button {
+        font-size: 16px;
+    }
+}

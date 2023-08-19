@@ -11,8 +11,10 @@ html { box-sizing: border-box;}
     user-select: none;
 }
 
-body, html {
+body, html, #root {
     overflow-x: hidden;
+    width: 100vw;
+    height: fit-content;
 }
 
 h1 {
@@ -42,6 +44,8 @@ main {
     display: flex;
     flex-direction: column;
     transition: margin-left .3s;
+    height: 100vh;
+    justify-content: space-evenly;
 }
 
 button {
@@ -68,12 +72,12 @@ button:active {
 }
 
 .get-place-form {
-    position: absolute;
     bottom: 20px;
     width: calc(100% - 500px);
     display: flex;
     gap: 20px;
     height: 60px;
+    position: fixed;
 }
 
 /* Needs to be optimized, current visual issue*/
@@ -103,6 +107,10 @@ button:active {
     border-radius: 50px;
     width: 200px;
     cursor: pointer;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .fa-magnifying-glass {
@@ -116,9 +124,33 @@ button:active {
     main {
         margin-left: 100px;
         width: calc(100% - 100px - 50px);
+        justify-content: initial;
     }
 
     .get-place-form {
-        width: 80%;
+        width: 70%;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    p, li {
+        font-size: 18px;
+    }
+
+    .mobile-search {
+        display: none!important;
+    }
+
+    .submit-button {
+        width: fit-content;
+        width: 60px;
+        border-radius: 50%;
+        font-size: 30px;
+    }
+
+    .text-field {
+        padding-left: 10px;
     }
 }

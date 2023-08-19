@@ -43,3 +43,18 @@
     letter-spacing: 1.5px;
     color: rgb(199, 68, 42);
 }
+
+@media (max-width: 720px) {
+    .sign-up {
+        width: 100%;
+    }
+
+    .sign-up-button {
+        width: 200px;
+    }
+
+    .already-signed {
+        flex-direction: column;
+        text-align: center;
+    }
+}

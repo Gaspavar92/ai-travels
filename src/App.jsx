@@ -120,9 +120,9 @@ function App() {
         <MyLocations show={showLocations} userInfo={user} />
         <Instructions show={showInstructions} />
         <form action="#" onSubmit={handleSubmit} className='get-place-form'>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass mobile-search"></i>
           <input type="text" onChange={(e) => {setSearch(e.target.value)}} className='text-field' value={search} placeholder='Search for a location...' required/>
-          <button type='submit' className='submit-button'>Search</button>
+          <button type='submit' className='submit-button'><i class="fa-solid fa-location-arrow"></i><span className='mobile-search'>Search</span></button>
         </form>
       </main>
 
