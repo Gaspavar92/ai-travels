@@ -47,6 +47,7 @@
 @media (max-width: 720px) {
     .sign-up {
         width: 100%;
+        overflow-y: auto;
     }
 
     .sign-up-button {
