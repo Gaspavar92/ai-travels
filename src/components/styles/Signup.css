@@ -50,6 +50,10 @@
         overflow-y: auto;
     }
 
+    .sign-up h2 {
+        margin-top: 45px;
+    }
+
     .sign-up-button {
         width: 200px;
     }
