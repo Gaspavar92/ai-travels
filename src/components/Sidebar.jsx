@@ -11,7 +11,7 @@ const Sidebar = ({handlePlace, handleLocations, handleSignIn}) => {
     return (
         <div className="sidebar">
           <div className="hamburger-icon" onClick={openMenu}>
-            <span></span>
+            <span className="middle-line"></span>
           </div>
         <h1><span className="ai">AI</span> <span className="letter-t">T</span>ravels</h1>
         <div className="gpt-buttons">
