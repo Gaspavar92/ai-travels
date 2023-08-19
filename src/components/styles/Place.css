@@ -79,7 +79,7 @@ h2, h3 {
 
 @media (max-width: 1020px) {
     .list-place {
-        width: 100vw;
+        width: calc(100% - 20px);
         padding: 20px 0;
         min-width: unset;
     }

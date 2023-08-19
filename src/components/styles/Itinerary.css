@@ -2,7 +2,7 @@
     padding: 60px 40px 160px 40px;
     letter-spacing: 2px;
     line-height: 30px;
-    width: calc(100vw - 100px);
+    width: 100%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
