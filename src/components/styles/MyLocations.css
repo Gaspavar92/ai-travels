@@ -147,12 +147,10 @@
     font-size: 40px;
     text-align: center;
     padding: 20px 0;
+    margin-top: 60px;
 }
 
 @media (max-width: 1020px) {
-    .section-title {
-        margin-top: 60px;
-    }
 
     .remove-btn {
         transform: translateY(0);
