@@ -8,7 +8,6 @@
     top: 5px;
     transition: .3s;
     border-radius: 10px;
-    z-index: 1;
 }
 
 .login-info:hover {

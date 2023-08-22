@@ -36,6 +36,8 @@
 @media (max-width: 720px) {
     .sign-in {
         width: calc(100% - 80px);
+        padding: 100px 0 160px 0;
+        height: fit-content;
     }
 
     .sign-in-button {
