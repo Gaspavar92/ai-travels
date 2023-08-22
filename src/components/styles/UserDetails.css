@@ -1,6 +1,6 @@
 .login-info {
     padding: 20px;
-    position: absolute;
+    position: fixed;
     display: flex;
     gap: 10px;
     letter-spacing: 1.5px;
@@ -8,6 +8,7 @@
     top: 5px;
     transition: .3s;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .login-info:hover {

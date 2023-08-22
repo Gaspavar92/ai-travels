@@ -101,13 +101,12 @@
 
 .no-itinerary, .no-user {
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 25px;
     line-height: 50px;
     letter-spacing: 1.5px;
-    padding: 30% 0;
+    height: 100%;
+    align-items: center;
+    display: flex;
 }
 
 .close-btn {
@@ -173,8 +172,5 @@
         width: 100vw;
         left: 0;
         right: 0;
-    }
-    .no-itinerary, .no-user {
-        padding: 100% 0;
     }
 }

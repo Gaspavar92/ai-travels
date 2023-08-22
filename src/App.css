@@ -14,7 +14,7 @@ html { box-sizing: border-box;}
 body, html, #root {
     overflow-x: hidden;
     width: 100vw;
-    height: fit-content;
+    height: 100%;
 }
 
 h1 {
@@ -43,9 +43,10 @@ main {
     margin-left: 500px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     transition: margin-left .3s;
-    height: 100vh;
     overflow-y: auto;
+    height: 100%;
 }
 
 button {

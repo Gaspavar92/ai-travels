@@ -6,7 +6,7 @@
     justify-content: center;
     gap: 20px;
     letter-spacing: 2px;
-    margin: 15% auto;
+    height: 100%;
 }
 
 .sign-in h2 {
@@ -36,7 +36,6 @@
 @media (max-width: 720px) {
     .sign-in {
         width: calc(100% - 80px);
-        margin: 50% auto;
     }
 
     .sign-in-button {

@@ -4,6 +4,7 @@
     overflow-y: auto;
     gap: 80px;
     padding-bottom: 120px;
+    justify-content: center;
 }
 
 .location {
