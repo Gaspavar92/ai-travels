@@ -43,7 +43,6 @@ main {
     margin-left: 500px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     transition: margin-left .3s;
     overflow-y: auto;
     height: 100vh;
