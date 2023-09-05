@@ -19,6 +19,7 @@ const Itinerary = ({placeInfo, show, userInfo}) => {
             setLoading(true);
             setResponse('');
             setError('');
+            setLoginError('');
             const apiKey = import.meta.env.VITE_API_KEY;
             
             const configuration = new Configuration({
